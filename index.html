@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/pro.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="select-menu">
+      <div class="select">
+        <span>select language</span>
+        <div class="icon"><i class="fa-solid fa-angle-down"></i></div>
+      </div>
+      <div class="options-select">
+        <div class="option">english</div>
+        <div class="option">arabic</div>
+        <div class="option">french</div>
+        <div class="option">spanish</div>
+        <div class="option">hindi</div>
+        <div class="option">korean</div>
+        <div class="option">japanese</div>
+      </div>
+    </div>
+
+    <script>
+      let select = document.querySelector(" .select");
+      let icon = document.querySelector(".icon");
+      let optionsSelect = document.querySelector(".options-select");
+      let options = document.querySelectorAll(".option");
+
+      select.addEventListener("click", () => {
+        optionsSelect.classList.toggle("active");
+        icon.classList.toggle("active");
+      });
+
+      options.forEach(option => {
+        option.addEventListener("click", () => {
+          options.forEach(option => {
+            option.classList.remove("selected");
+          });
+          select.querySelector("span").innerHTML = option.innerHTML;
+          option.classList.add("selected");
+          optionsSelect.classList.toggle("active");
+          icon.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>
